@@ -19,4 +19,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="%28variable%292022.8.9.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
