@@ -23,5 +23,8 @@
     <ClInclude Include="%28variable%292022.8.9.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="(Constant)2022.8.10.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
