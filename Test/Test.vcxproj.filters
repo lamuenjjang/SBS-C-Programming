@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="수업 내용">
+      <UniqueIdentifier>{57d8b284-5d7b-4960-a6e9-1a9c6c05b492}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.c">
@@ -20,11 +23,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="%28variable%292022.8.9.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="(Constant)2022.8.10.h">
-      <Filter>소스 파일</Filter>
+      <Filter>수업 내용</Filter>
+    </ClInclude>
+    <ClInclude Include="%28variable%292022.8.9.h">
+      <Filter>수업 내용</Filter>
+    </ClInclude>
+    <ClInclude Include="(bits)2022.08.11.h">
+      <Filter>수업 내용</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
