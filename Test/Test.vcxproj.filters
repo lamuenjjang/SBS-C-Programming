@@ -32,5 +32,8 @@
     <ClInclude Include="(bits)2022.08.11.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
+    <ClInclude Include="%28statement%292022.8.12.h">
+      <Filter>수업 내용</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
