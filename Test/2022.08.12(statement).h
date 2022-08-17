@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-
+/*
 void main()
 {
 	// 부호가 없는 자료형
@@ -100,4 +100,4 @@ void main()
 
 	// switch : 어떤 결과에 따라 그 결과부터 실행되는 명령문입니다.
 	// go to
-}
+}*/
