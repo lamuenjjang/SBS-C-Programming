@@ -1,105 +1,148 @@
 #include <stdio.h>
 
-void main() 
+// 함수의 원형이란?
+// 호출할 함수를 컴파일러에게 미리 알려주는 과정입니다.
+// 단일 패스 컴파일(O) 멀티 패스 컴파일
+
+
+void Integer(int x)
 {
-	// 문자열이란?
+	printf("Integer 함수의 값 : %d\n",x);
+}
+void Character(char x)
+{
+	printf("Character 함수의 값 : %c\n", x);
+}
+void Decimal(float x)
+{
+	printf("Decimal 함수의 값 : %f\n", x);
+}
+void Function();
+
+// 스왑함수에서 값을 바꾸는 로직을 만들어 주세요.
+void Swap(int x,int y)
+{
+	int temp = 0;
+	temp = x;
+	x = y;
+	y = temp;
+	printf("바꾼 A와 B의 값 : %d, %d\n", x, y);
+}
+// 더하기 함수
+// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
+void Add(int x,int y)
+{
+	int result = x + y;
+	printf("덧셈 결과 : %d\n", result);
+}
+// 빼기 함수
+// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
+void Sub(int x, int y)
+{
+	int result = x - y;
+	printf("뺄셈 결과 : %d\n", result);
+}
+// 곱셈 함수
+// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
+void Mul(int x, int y)
+{
+	int result = x * y;
+	printf("곱셈 결과 : %d\n", result);
+}
+// 나눗셈 함수
+// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.	
+void div(int x, int y)
+{
+	int result = x / y;
+	printf("나눗셈 결과 : %d\n", result);
+}
+
+void main()
+{
+	
+	// 범용 void 포인터란?
 	/*
-	// 연속적인 메모리 공간에 지정된 문자 변수의 집합입니다.
+	// 자료형이 정해지지 않은 상태로 모든 자료형을 저장할 수 있는 포인터입니다.
+	int value = 10;
 
-	// char는 1 byte이므로 하나의 문자만 저장할 수 있습니다.
-	char alphabet = 'A';
+	void* ptr = &value;
 
-	                 // 0   1   2   3   4
-	char string[6] = { 'A','B','C','D','E'};
+	// 범용 포인터는 메모리 주소에 접근해서 값을 변경할 수 없습니다.
+	// *ptr = 20; <- ERROR
 
-	string[0] = 'T';
+	*(int*)ptr = 20;
 
-	// 문자 배열을 선언할 때, 맨 마지막에 NULL만 포함됩니다.
-	// 문자 배열같은 경우에는 배열의 크기 n + 1로 설정해야합니다.
+	printf("ptr이 가리키는 값 : %d\n", *(int*)ptr);
 
-	printf("string 배열의 값 : %s\n", string);
+	// 범용 포인터로 변수의 메모리에 접근하려면
+	// 범용 포인터가 가리키는 변수의 자료형으로 형 변환을 해주어야 합니다.
 
-	// NULL문자는 문자열의 끝을 알려주는 제어 문자입니다.
+	float decimal = 10.5;
+	ptr = &decimal;
 
-	// [T] [B] [\0] [D] [E]
-	string[2] = '\0';
+	*(float*) ptr = 20.5;
+	printf("ptr이 가리키는 값 : %f\n", *(float*) ptr);
+	
+	// 내가 함수에 입력하는 데이터(변수)가 출력되도록 하고 싶을때
+	// char(문자) int(정수) float(실수)
+	// Integer(10);
+	// Character('A');
+	// Decimal(10.5);
 
-	// 문자 배열 중간에 NULL문자가 있으면 NULL문자 이전의 문자열까지만 출력합니다.
-	printf("string 배열의 값 : %s\n", string);
+	int A = 10;
+	float B = 20.5;
+	char C = 'R';
+
+	Function("int", &A);
+	Function("float", &B);
+	Function("char", &C);
 	*/
 
-	// 문자열 초기화
+	// 두개의 변수의 값을 바꿔주세요.
+	// 하나의 임시 변수를 만들어서 거기에 값을 보관했다가 옮기면 됩니다.
+	int A = 10;
+	int B = 20;
+	int temp = 0;
+	printf("A와 B의 값 : %d, %d\n", A, B);
+
 	/*
-	// 코드 영역
-	// 데이터 영역 - > BSS, Read Only Data Segment,
-	// 스택 영역
-	// 힙 영역
+	temp = A;
+	A = B;
+	B = temp;
 
-	// "count"
-	// [c] [o] [u] [n] [t] [\0] -> 5 char + NULL = 6 byte
-
-	// 4 byte 변수의 메모리를 저장할 수  있는 포인터 변수
-	// char * ptr -> [c][o][u][n][t][\0]
-
-	const char* ptr = "count";
-
-	// 포인터가 변수를 어디를 가리키고 있는지 확인하기 위해서
-	// 거기 있는 값을 출력하기 위해서 %c로 출력합니다.
-
-	// ptr[0] = 'T';
-	// *ptr을 하는 순간 포인터가 가리키고 있는 위치에 접근해서 값을 출력합니다.
-	// ptr = count
-	// "%s" 문자열의 시작주소로 접근해서 값을 count 출력한다고 보면 됩니다.
-
-	printf("ptr이 가리키는 주소 : %p\n", ptr);
-	printf("ptr이 가리키는 값 : %c\n", ptr[0]);
-	printf("ptr이 가리키는 문자열의 값 : %s\n", ptr);
+	printf("A와 B의 값 : %d, %d\n", A, B);
 	*/
 
-	// 이중 포인터
-	/*
-	int value = 100;
+	// 값에 의한 호출ㄱ
+	// 함수 호출시 전달되는 변수의 값을 복사하여
+	// 함수의 인자로 전달하는 방법입니다.
+	Swap(A, B);
+	Add(10,2);
+	Sub(5,5);
+	Mul(20,4);
+	div(10,2);
+}
 
-	// ptr(value 주소) -> value 주소를 가리킵니다.
-	int * ptr = &value;	
+// char * name ----> [c]har
+// void * value ----> A의 시작 주소
 
-	// twoPtr(이중 포인터)은 ptr이라는 포인터 변수의 주소를 지정합니다.
-	// twoPtr(ptr의 주소) -> ptr의 시작주소를 가리킵니다.
-	int** twoPtr = &ptr;
-	printf("value의 시작주소 : %p\n", &value);
-	printf("ptr이 가리키는 값 : %p\n", ptr);
-	printf("twoPtr이 가리키는 값 : %p\n", twoPtr);
+ 
+void Function(char* name, void* value)
+{
+	printf("%p\n", name); // name 변수의 시작주소 ex) 00FF55DA
+	printf("%s\n", name); // name 변수의 문자열 int == int
 
-	printf("ptr변수가 가리키고 있는 변수의 값 : %d\n", *ptr);
-	printf("twoPtr변수가 가리키고 있는 변수의 값 : %d\n", **twoPtr);
-
-	// twoPtr          ptr(00FF883A)        value
-	// [00FF883A] ---> [00DDFC55] -----> [00DDFC55]
-	*/
-
-	// 소수 구하기
-	/*
-	// 소수(1보다 큰 자연수 중에 1과 자기자신만을 약수로 가지는 수)
-	// 문제
-	// 1과 20사이의 소수를 출력해주세요.
-	int count = 0;
-	int value;
-
-	scanf_s("%d", &value);
-	for (int i = 2; i <= value - 1; i++)
+	// if문이 비교되는 원리는 %s로 구분합니다.
+	if (name == "int")
 	{
-		if (value % i == 0) 
-		{
-			count++;
-		}
-		
+		printf("%d\n", *(int*)value);
 	}
-	if (count == 0)
+	else if (name == "float")
 	{
-		printf("%d는 소수입니다.",value);
+		printf("%f\n", *(float*)value);
 	}
-	else
+	else if (name == "char")
 	{
-		printf("%d는 소수가 아닙니다.", value);
-	}*/
+		printf("%c\n", *(char*)value);
+	}
 }
