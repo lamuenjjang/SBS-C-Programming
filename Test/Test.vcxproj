@@ -152,6 +152,7 @@
     <ClInclude Include="2022.08.19(pointer).h" />
     <ClInclude Include="2022.08.23(array pointer).h" />
     <ClInclude Include="2022.08.24(algorhythm).h" />
+    <ClInclude Include="2022.08.26%28void pointer%29.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

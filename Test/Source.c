@@ -1,148 +1,101 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-// 함수의 원형이란?
-// 호출할 함수를 컴파일러에게 미리 알려주는 과정입니다.
-// 단일 패스 컴파일(O) 멀티 패스 컴파일
+// 매개 변수는 함수 내부에서만 사용가능한 변수입니다.
+// 매개 변수가 포인터로 선언되면 변수의 주소를 전달해야 합니다.
 
+void Swap(int * x, int * y) 
+{
+	// x만 출력하면 포인터 변수 x(주소)만 출력합니다.
+	// 그래서 *(애스터리스크) 연산자를 사용하여 메모리에 접근하여 값을 출력합니다.
+	int temp = * x;
+	*x = *y;
+	*y = temp;
 
-void Integer(int x)
-{
-	printf("Integer 함수의 값 : %d\n",x);
-}
-void Character(char x)
-{
-	printf("Character 함수의 값 : %c\n", x);
-}
-void Decimal(float x)
-{
-	printf("Decimal 함수의 값 : %f\n", x);
-}
-void Function();
+	// x변수가 가리키는 주소와 y 변수가 가리키는 주소를 출력합니다.
+	printf("매개변수 x의 주소와 매개변수 y의 주소 값 : %p , %p\n", x, y);
+} // <- 함수가 종료되는 동시에 매개변수 x와 y의 값이 사라집니다.
 
-// 스왑함수에서 값을 바꾸는 로직을 만들어 주세요.
-void Swap(int x,int y)
+void main() 
 {
-	int temp = 0;
-	temp = x;
-	x = y;
-	y = temp;
-	printf("바꾼 A와 B의 값 : %d, %d\n", x, y);
-}
-// 더하기 함수
-// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
-void Add(int x,int y)
-{
-	int result = x + y;
-	printf("덧셈 결과 : %d\n", result);
-}
-// 빼기 함수
-// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
-void Sub(int x, int y)
-{
-	int result = x - y;
-	printf("뺄셈 결과 : %d\n", result);
-}
-// 곱셈 함수
-// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.
-void Mul(int x, int y)
-{
-	int result = x * y;
-	printf("곱셈 결과 : %d\n", result);
-}
-// 나눗셈 함수
-// 2개 인수에 값을 넣어서 계산되는 결괏값을 출력합니다.	
-void div(int x, int y)
-{
-	int result = x / y;
-	printf("나눗셈 결과 : %d\n", result);
-}
-
-void main()
-{
-	
-	// 범용 void 포인터란?
+	// 참조에 의한 호출
 	/*
-	// 자료형이 정해지지 않은 상태로 모든 자료형을 저장할 수 있는 포인터입니다.
-	int value = 10;
+	// 함수 호출 시 전달되는 변수의 주소를 함수의 인수로 전달하는 방법입니다.
+	int x = 10;
+	int y = 20;
 
-	void* ptr = &value;
+	printf("변수x의 주소와 변수y의 주소 값 : %p , %p\n", &x, &y);
+	printf("변수x와 변수y의 값 : %d , %d\n", x, y);
 
-	// 범용 포인터는 메모리 주소에 접근해서 값을 변경할 수 없습니다.
-	// *ptr = 20; <- ERROR
+	Swap(&x, &y);
 
-	*(int*)ptr = 20;
+    printf("변수x와 변수y의 값 : %d , %d\n", x, y);
 
-	printf("ptr이 가리키는 값 : %d\n", *(int*)ptr);
+	// 참조에 의한 호출은 매개변수에 변수의 주소를 넘겨준 다음
+	// 외부에 있는 변수의 주소가 참조되어 외부에 있는 변수에 영향을 끼칠 수 있습니다.
 
-	// 범용 포인터로 변수의 메모리에 접근하려면
-	// 범용 포인터가 가리키는 변수의 자료형으로 형 변환을 해주어야 합니다.
-
-	float decimal = 10.5;
-	ptr = &decimal;
-
-	*(float*) ptr = 20.5;
-	printf("ptr이 가리키는 값 : %f\n", *(float*) ptr);
-	
-	// 내가 함수에 입력하는 데이터(변수)가 출력되도록 하고 싶을때
-	// char(문자) int(정수) float(실수)
-	// Integer(10);
-	// Character('A');
-	// Decimal(10.5);
-
-	int A = 10;
-	float B = 20.5;
-	char C = 'R';
-
-	Function("int", &A);
-	Function("float", &B);
-	Function("char", &C);
+	// 값에 의한 호출은 매개 변수에 값만 전달하므로 외부에 있는 변수의 값이 변경될 일은 없습니다.
 	*/
 
-	// 두개의 변수의 값을 바꿔주세요.
-	// 하나의 임시 변수를 만들어서 거기에 값을 보관했다가 옮기면 됩니다.
-	int A = 10;
-	int B = 20;
-	int temp = 0;
-	printf("A와 B의 값 : %d, %d\n", A, B);
-
+	// 동적 할당이란?
 	/*
-	temp = A;
-	A = B;
-	B = temp;
+	// 프로그램이 실행되는 도중에 사용자가 필요한 만큼 메모리를 할당하는 작업입니다.
+	
+	// 4 byte 메모리
+	// 포인터 변수 ptr
 
-	printf("A와 B의 값 : %d, %d\n", A, B);
+	// 스택                    힙
+	// ptr ------------------> [][][][]
+	// 4 byte 크기의 메모리 공간을 할당합니다.
+	// 포인터 변수 ptr은 동적으로 할당한 메모리의 시작 주소를 가리킵니다.
+	int* ptr = malloc(sizeof(int));
+
+	// 메모리를 동적 할당할 때 주소를 범용 포인터로
+	// 반환하기 때문에 자료형을 변환한 다음 메모리에 할당해야 합니다.
+
+	*ptr = 10;
+	
+	printf("ptr이 가리키는 주소 : %p\n",ptr);
+	printf("ptr이 가리키는 값 : %d\n",* ptr);
+
+	// 동적 할당한 메모리는 free함수를 통해 해제해야 합니다
+	// 동적 할당한 메모리는 해제하지 않고 방치하게 되면 메모리 누수가 발생합니다.
+	free(ptr);
+
+
+	// 메모리
+	// 코드 영역
+	// 데이터 영역
+	// 힙 영역 <- 동적 할당
+	// 스택 영역
 	*/
 
-	// 값에 의한 호출ㄱ
-	// 함수 호출시 전달되는 변수의 값을 복사하여
-	// 함수의 인자로 전달하는 방법입니다.
-	Swap(A, B);
-	Add(10,2);
-	Sub(5,5);
-	Mul(20,4);
-	div(10,2);
-}
+	// UP - DOWN 게임
+	// 1. 컴퓨터가 랜덤한 숫자를 뽑습니다. <- 변수(a) <- 1~ 50 랜덤한 값을 넣어줍니다.
+	// 2. 우리가 scanf_s( )함수를 사용해서 값을 입력합니다. <- 변수 (b) <-입력한 값을 넣어줍니다.
+	// 3. 그다음 컴퓨터가 뽑은 랜덤한 숫자와 우리가 입력한 숫자가 맞는지 확인하는 게임입니다.
+	
+	
 
-// char * name ----> [c]har
-// void * value ----> A의 시작 주소
+	// rand() : 0 ~ 32767 사이의 난수 값을 반환합니다.
+	// 컴퓨터는 완벽한 랜덤을 만들 수 없습니다.
+	// 시간을 가져와서 1970년 1월 1일 기준으로 시간을 가져와서 랜덤을 생성합니다.
 
- 
-void Function(char* name, void* value)
-{
-	printf("%p\n", name); // name 변수의 시작주소 ex) 00FF55DA
-	printf("%s\n", name); // name 변수의 문자열 int == int
+	// 1~ 10 사이의 난숫값만 나올수 있도록 설정해주세요.
+	// % 연산자를 사용해야 합니다.
 
-	// if문이 비교되는 원리는 %s로 구분합니다.
-	if (name == "int")
+	srand(time(NULL));
+
+	for (int i = 0; i < 10; i++)
 	{
-		printf("%d\n", *(int*)value);
+		// rand() 0 ~ 32767 % 10
+		printf("%d\n",rand()% 10 + 1);
 	}
-	else if (name == "float")
-	{
-		printf("%f\n", *(float*)value);
-	}
-	else if (name == "char")
-	{
-		printf("%c\n", *(char*)value);
-	}
+
+	// 컴퓨터 1 ~ 50 (33)
+	// 20값을 입력 (컴퓨터가 뽑은 숫자보다 적습니다.) HP -1
+	// 34값을 입력 (컴퓨터가 뽑은 숫자보다 큽니다.) HP -1)
+
+
 }
