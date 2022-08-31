@@ -23,37 +23,40 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="2022.08.10%28Constant%29.h">
+    <ClInclude Include="2022.08.10%28상수%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.09%28variable%29.h">
+    <ClInclude Include="2022.08.09%28변수%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.11%28bits%29.h">
+    <ClInclude Include="2022.08.11%28비%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.12%28statement%29.h">
+    <ClInclude Include="2022.08.12%28조건%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.16%28switch%29.h">
+    <ClInclude Include="2022.08.16%28스위치%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.17(for, calculator).h">
+    <ClInclude Include="2022.08.17%28for%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.18(transform).h">
+    <ClInclude Include="2022.08.18%28형 변환%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.19(pointer).h">
+    <ClInclude Include="2022.08.19%28포인%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.23(array pointer).h">
+    <ClInclude Include="2022.08.23%28배열과 포인%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.24(algorhythm).h">
+    <ClInclude Include="2022.08.24%28문자%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.26%28void pointer%29.h">
+    <ClInclude Include="2022.08.26%28밤용포인터%29.h">
+      <Filter>수업 내용</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.08.30(동적 할당).h">
       <Filter>수업 내용</Filter>
     </ClInclude>
   </ItemGroup>
