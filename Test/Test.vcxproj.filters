@@ -56,7 +56,10 @@
     <ClInclude Include="2022.08.26%28밤용포인터%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
-    <ClInclude Include="2022.08.30(동적 할당).h">
+    <ClInclude Include="2022.08.29%28동적 할당%29.h">
+      <Filter>수업 내용</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.08.30(재귀 함수).h">
       <Filter>수업 내용</Filter>
     </ClInclude>
   </ItemGroup>
