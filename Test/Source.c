@@ -1,118 +1,119 @@
-#include <stdio.h> // <> 라이브러리 헤더 파일을 가져올때 사용합니다.
-#include "Function.h" // ""사용자 정의 헤더 파일을 가져 올 때 사용합니다.
+#include <stdio.h>
+#include <math.h> // 수학관련 헤더파일
 
-// 매크로란?
-/*
-// 프로그램 내에서 특정한 데이터가 문자열로 정의되고 처리되는 과정입니다.
-#define PI 3.14
-
-// 매크로는 자료형이 없으므로 메모리를 차지하지 않습니다.
-
-// 매크로에서는 ;로 필요하지 않습니다.
-
-// 매크로 함수도 자료형이 없으므로 메모리 공간이 확보되지 않습니다.
-#define Solution(x,y) x*y 
-
-#define ANDROID 1
-#define IOS 0
-*/
-
-// 구조체
-struct Character
+struct Player
 {
-	//
-	int health;
-	float weight;
-	const char* name;
-	// 구조체를 선언하기 전에 구조체는 메모리 공간이 생성되지 않으므로
-	// 구조체 내부에 있는 데이터를 초기화 할 수 없습니다.
+	int x;
+	int y;
+};
+
+struct Monster
+{
+	int x;
+	int y;
 };
 
 
-void main()
+void parameterArray(int array [])
 {
-	// 전처리기란?
+	for (int i = 0; i < 5; i++)
+	{
+		array[i] = 10;
+	}
+}
+
+void StructArray(struct Player * x)
+{
+
+}
+
+int main() 
+{
+	// void main vs int main
 	/*
-	// 프로그램이 컴파일 되기 이전에 프로그램에 대한 사전 처리하는 과정입니다.
+	// int main() 함수가 종료할때 정수형 값을 리턴하겠다는 의미입니다.
+	// 운영체제에게 프로그램의 종료 사유를 전달해 주는 것입니다.
+	
+	// 0을 리턴하게 되면 프로그램이 정상적으로 실행을 마치고 종료하는 것으로 판단합니다.
+	// 0 이외에 값을 리턴하게 되면 비정상적으로 종료하는 것으로 판단합니다.
 
-	int result = Function(10,20);
+	// void main() 함수가 종료할 떄 아무 값도 리턴하지 않겠다는 의미입니다.*/
 
-	printf("result 변수의 값 : %d\n",result);
-
-	// 매크로 변수는 상수이고, 메모리 공간이 없기 때문에 값을 변경할 수 없습니다.
-	// PI = 3.25; <- ERROR
-
-	printf("PI의 값 : %f\n", PI);
-	printf("Sollution 함수의 결과 : %d\n", Solution(10, 20));
-	int a = 1;
-	int b = 2;
-	printf("Sollution 함수의 결과 : %d\n", Solution(a+1,b+1));
-	                                     // 1+ (1 * 2) + 1
- */
-
-
-	// 매크로의 단점
-	// 문제가 생겼을때 디버깅이 되지 않습니다.
-
-	// 조건부 컴파일
+	
+	// 루트, 제곱근
 	/*
-	// 조건에 따라 일정 부분을 컴파일 할지 안할지 결정할 수 있습니다.
-	// 조건부 컴파일은 #endif를	사용해서 끝내야 됩니다.
+	int value = 49;
+	printf("루트의 값 : %lf\n", sqrt(value));
 
-#if IOS
-	printf("첫번째 조건입니다.");
-#elif 10 < 5
-	printf("두번째 조건입니다.");
-#else 
-	printf("두 조건이 다 틀립니다.");
-#endif
-*/
-
-	// 구조체란?
-	/*
-	// 여러개의 변수를 하나의 집합으로 구조화한 다음 하나의 객체를 생성하는 것입니다.
-	struct Character leesin;
-
-	leesin.health = 100;
-	leesin.weight = 78.2f;
-	leesin.name = "fury of dragon";
-
-	printf("leesin의 체력 : %d\n", leesin.health);
-	printf("leesin의 이름 : %s\n", leesin.name);
-	printf("leesin의 몸무게 : %f\n", leesin.weight);
-
-	// 구조체에 초기화 리스트를 사용할 때는
-	// 구조체 위에서 선언된 변수의 순서로 정의되어야합니다.
-	struct Character Alistar = {200, 100.5f,"Alistar"};
-
-	printf("Alistar의 체력 : %d\n", Alistar.health);
-	printf("Alistar의 이름 : %s\n", Alistar.name);
-	printf("Alistar의 몸무게 : %f\n", Alistar.weight);
+	
+	int variable = 10;
+	printf("variable의 제곱은 : %lf\n", pow(variable, 2));
 	*/
 
-	// 과잉수
-	// 자연수 중에서 자기 자신을 제외한 양의 약수를
-	// 모두 더했을 때 자기 자신보다 큰 수
-	int result = 0;
-	int number = 0;
+	// 두 점 사이의 거리
+	/*
+	struct Player Character = {0,0};
+	struct Monster dragon = {3,5};
 
-	scanf_s("%d",&number);
+	// Character와 Dragon의 거리를 구해주세요.
 
-	for(int i = 1; i < number; i++)
-	{ 
-		if (number % i == 0)
-		{
-			result += i;
-		}
-	}
-	if (result > number) 
+	double result = sqrt((pow(Character.x - dragon.x, 2) + pow(Character.y - dragon.y, 2)));
+
+	printf("Character와 Dragon의 거리 : %lf\n",result);
+	*/
+
+	// Lvalue vs Rvalue?
+	/*
+	// Lvalue란?
+	// 표현식 이후에도 사라지지 않는 값이며, 이름을 지니고 있는 변수입니다.
+
+	// Rvalue란?
+	// 표현식 이후에 사라지는 값이며, 임시 변수입니다.
+
+	// 10, 20 <- Rvalue
+	// a, b	<- Lvalue
+	// Lvalue는 Rvalue로도 사용할 수 있습니다.
+	int a = 10;
+	int b = 20;
+
+	int result = a + b;
+
+	// Lvalue에 상수를 사용할 수 없습니다.
+	// 10 = a;
+
+	printf("result 변수의 값 : %d", result);
+
+	// 전위 증감, 후위 증감
+	// 전위 증감같은 경우에는 Lvalue랑 Rvalue로 사용할 수 있습니다.
+	// 후위 증감같은 경우에는 Rvalue로만 사용이 가능합니다.
+
+	int x = 0;
+	int y = 0;
+
+	// 전위 증가는 증가된 자기 자신(변수)을 반환합니다.
+	++y;
+
+	// 후위 증가는 증가된 복사본을 반환합니다.
+	x++;
+	*/
+
+	// [0] [0] [0] [0] [0]
+	int room[5] = { 0, };
+
+	for (int i = 0; i < 5; i++)
 	{
-		printf("%d는 과잉수입니다.\n", number);
-		printf("약수의 합 : %d, 입력받은수 : %d\n", result, number);
+		printf("%d  ", room[i]);
 	}
-	else
+	printf("\n");
+
+	// room이라는 이름은 배열의 시작주소를 의미합니다.
+;	parameterArray(room);
+	for (int i = 0; i < 5; i++)
 	{
-		printf("%d는 과잉수가 아닙니다.\n", number);
-		printf("약수의 합 : %d, 입력받은수 : %d\n", result, number);
+		printf("%d  ", room[i]);
 	}
+
+
+
+	return 0;
 }

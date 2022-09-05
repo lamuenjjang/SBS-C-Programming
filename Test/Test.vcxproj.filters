@@ -68,5 +68,8 @@
     <ClInclude Include="Function.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
+    <ClInclude Include="2022.09.02(전처리기).h">
+      <Filter>수업 내용</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
