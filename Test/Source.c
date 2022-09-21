@@ -1,7 +1,14 @@
-#include <stdio.h>
+#include <stdio.h> 
+int main(void)
+{
+}
+
+
+
+/*/#include <stdio.h>
 
 // 열거형이란?
-/*
+
 // 반드시 하나의 값만 가지게 될 변수들의 집합체입니다.
 
 // Day라는 열거형이	생성됩니다.
@@ -16,10 +23,9 @@ enum State
 	Attack,
 	Death
 };
-*/
 int main()
 {
-	/*
+	
 	enum State state;
 
 	state = Idle;
@@ -34,6 +40,6 @@ int main()
 		break;
 	case Death: printf("죽음 상태");
 		break;
-	}*/
+	}
 	return 0;
-}
+}*/
