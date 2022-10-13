@@ -139,9 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="2022.08.09%28변수%29.h" />
     <ClInclude Include="2022.08.11%28비%29.h" />
     <ClInclude Include="2022.08.10%28상수%29.h" />
@@ -163,6 +160,9 @@
     <ClInclude Include="2022.09.19(구조체 패딩).h" />
     <ClInclude Include="2022.09.20(자기참조 구조체).h" />
     <ClInclude Include="Function.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C++class.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

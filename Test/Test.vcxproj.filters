@@ -18,11 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="2022.08.10%28상수%29.h">
       <Filter>수업 내용</Filter>
     </ClInclude>
@@ -86,5 +81,10 @@
     <ClInclude Include="2022.09.20(자기참조 구조체).h">
       <Filter>수업 내용</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C++class.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
