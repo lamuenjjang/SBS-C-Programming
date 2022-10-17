@@ -1,115 +1,105 @@
-#include <iostream> // 입출력 스트림
+#include <iostream>
+#include <string>
+using namespace std;
 
-// 스트림이란?
-// 시간의 흐름에 따라 연속적으로 발생하는 데이터의 흐름입니다.
+// 이름 공간(namespace)이란?
+/*
+// 속성을 구분할 수 있도록 유효범위를 설정하는 영역입니다.
 
-// auto는 매개 변수로 사용할 수 없습니다.
-
-// 클래스
-// 특정 객체에 속성과 기능을 정의한 집합체입니다.
-
-class Player
+namespace ClientA 
 {
-// 접근 지정자
-// 클래스 외부에서 접근 가능한 멤버(변수, 함수)와 클래스 외부에서 접근이
-// 허용되지 않는멤버(변수, 함수)를 구분하는 지정자입니다.
-
-// public : 클래스 내부와 자기가 상속하고 있는 클래스 그리고
-// 	        클래스 외부에서 접근을 허용할 수 있는 지정자입니다.
-// private : 클래스 내부에서만 접근이 허용되고, 자기가 상속하는 클래스와
-// 	         클래스 외부에서는 접근할 수 없는 지정자입니다.
-// pritected : 클래스 내부와 자기가 상속하는 클래스까지만 접근을 허용하고
-//             클래스 외부에서는 접근할 수 없는 지정자입니다.
-
-// 클래스는 접근 지정자를 해주지 않으면 기본적으로 private로 설정됩니다.
-
-
-public : 
-	int health = 100;
-	float size = 3.65;
-	std::string name = "Kang Min Hyuk";
-private :
-	void Attack() {
-		std::cout << "공격" << std::endl;
+	void Attack()
+	{
+		cout << "원거리 공격" << endl;
 	}
-};
+}
+
+// ClientA의 이름 공간을 명시하지않아도 사용하겠다는 의미입니다.
+using namespace ClientA;
+
+namespace ClientB
+{
+
+	void Attack()
+	{
+		cout << "근거리 공격" << endl;
+	}
+}
+
+int value = 20;
+*/
+
+// 기본 매개변수
+/*
+// 함수를 선언할때 매개변수를 선언과 동시에 초기화하는 매개변수입니다.
+void Function(int x = 20, int y = 30) 
+{
+	cout << "x의 값 : " << x << endl;
+	cout << "y의 값 : " << y << endl;
+}*/	
 
 int main() 
 {
-	// C 기본 입출력
+	// 범위 지정 연산자란?
 	/*
-	// std::cout : 출력하기 위한 객체
-	// std::endl : 문자열 개행
-
-	// 삽입 연산자 "<<" : 출력 스트림 개체에 바이트로 보내는 연산자입니다.
-
-	char alphabet = 'B';
-	int value = 10;
-	float variable = 10.5;
-
-
-	std::cout << "alphabet 변수의 값 : " << alphabet << std::endl;
-	std::cout << "value 변수의 값 : " << value << std::endl;
-	std::cout << "variable 변수의 값 : " << variable << std::endl;
-
-	std::cout << "두 번째 안녕하세요.";
-
-	// 추출 연산자 ">>" : 입력한 데이터를 입력 스트림에서 추출하여
-	//				      오른쪽에 위치한 변수에 저장합니다.
-	std::cin >> value;
-
-	// std::cin 추출하기 위한 객체
-
-	std::cout << "value 변수의 값 : " << value << std::endl;
+	// 여러 범위에서 식별되는 식별자를 구분하는데 사용하는 연산자입니다.
+	int value = 10; // 지역 변수 value
+					// 스택 영역
 	*/
 
-	// bool = 참과 거짓을 나타내는 자료형입니다.
-	// bool value = true;
-
-	// 범위 기반 for 문
+	// 컴퓨터 언어 이론 (범위 규칙)
 	/*
-	// 범위 기반 for 문
-	// 시작과 끝점을 알려주지 않아도 데이터 크기에 따라 끝까지 순회해주는 반복문입니다.
+	// 전역 변수와 같은 이름의 지역변수가 선언되었을때,
+	// 가장 가까운 범위에 존재하는 변수의 이름을 사용하는 규칙입니다.
 
-	int array[] = {1,2,3,4,5};
+	std::cout << "value의 값 : " << value << std::endl;
+	std::cout << "전역 변수 value의 값 : " << ::value << std::endl;
+
+	Attack(); // using namespace를 사용하기 때문에
+			  // ClientA::
+			
+	ClientB::Attack();
+	*/
+
+	// 기본 매개변수
+	/*
+	// 기본 매개변수를 선언하게 되면, 함수의 인수를 전달하지 않아도 사용할 수 있습니다.
+
+	// 함수에 인수를 전달할때 매개변수의 왼쪽부터 값이 들어갑니다.
+	Function();
+	*/
+
 	
 
-	// element : 변수 이름
-	// array : 데이터 리스트 (배열, 벡터, 리스트)
-	for (int element : array) {
-		// 범위 기반 for 문 단점
-		// 1. for 문 내에서 index 정보가 존재하지 않습니다.
-		// 2. for 문 안에서 배열의 요소를 변경할 수 없습니다.
-
-		// 값을 지정한 형태로 증가시키는 것은 가능합니다. element +=1;
-		// 배열 안에 있는 값을 전체 초기화도 가능합니다. element = 10;
-		element = 10;
-		std::cout << element << std::endl;
-	}
-	std::cout << "-----------------------" << std::endl;
-	for (int element : array) {
-		std::cout << element << std::endl;
-	}
-	*/
-
-	// 자료형 추론
+	// getline() 함수 : 표준입력을 받는경우 Enter의 여부에 따라 입력받을 문자열을 구분합니다.
 	/*
-	// 변수나 함수를 선언하고 연산이 이루어질 때 
-	// 컴파일러가 자동으로 자료형을 추론해주는 기능입니다.
+	string name;
+	getline(cin, name);
 
-	// 자료형 추론은 변수를 초기화하지 않으면 사용할 수 없습니다.
+	cout << name;*/
 
-	auto value = 10;
-	auto decimal = 20.6;
+	int num;
+	string str;
+	cin >> num;
 
-	std::cout << "value 변수의 값 : " << value << std::endl;
-	std::cout << "decimal 변수의 값 : " << decimal << std::endl;
-	*/
+	for (int i = 0; i < num; i++) {
+		int sum = 0;
+		cin >> str;
+		int Ocnt = 1;
+		for (int j = 0; str[j] != '\0'; j++) {
+			if (str[j] == 'O') {
+				sum += Ocnt;
+				Ocnt++;
+			}
+			else if (str[j] == 'X') {
+				Ocnt = 1;
+			}
+		}
+		cout << sum << endl;
+	}
 
-	// 클래스
-	Player kim;
-
-	std::cout << kim.health << " " << kim.size << " " << kim.name << std::endl;
+	
 
 	return 0;
+	
 }
