@@ -16,6 +16,9 @@
     <Filter Include="수업 내용">
       <UniqueIdentifier>{57d8b284-5d7b-4960-a6e9-1a9c6c05b492}</UniqueIdentifier>
     </Filter>
+    <Filter Include="c++수업">
+      <UniqueIdentifier>{56e1be55-022d-47c6-ad99-2324d46b1c31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="2022.08.10%28상수%29.h">
@@ -82,11 +85,20 @@
       <Filter>수업 내용</Filter>
     </ClInclude>
     <ClInclude Include="2022.10.13(입출력 스트림).h">
-      <Filter>수업 내용</Filter>
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.10.17.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C++class.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
