@@ -96,12 +96,18 @@
     <ClInclude Include="2022.10.18.h">
       <Filter>c++수업</Filter>
     </ClInclude>
+    <ClInclude Include="2022.10.24.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.10.25.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.10.26.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C++class.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

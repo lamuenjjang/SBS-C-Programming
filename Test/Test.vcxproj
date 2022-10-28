@@ -162,12 +162,14 @@
     <ClInclude Include="2022.10.13(입출력 스트림).h" />
     <ClInclude Include="2022.10.17.h" />
     <ClInclude Include="2022.10.18.h" />
+    <ClInclude Include="2022.10.24.h" />
+    <ClInclude Include="2022.10.25.h" />
+    <ClInclude Include="2022.10.26.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="Monster.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C++class.cpp" />
-    <ClCompile Include="Monster.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
