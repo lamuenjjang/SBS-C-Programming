@@ -105,6 +105,15 @@
     <ClInclude Include="2022.10.26.h">
       <Filter>c++수업</Filter>
     </ClInclude>
+    <ClInclude Include="2022.10.27.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.10.31.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
+    <ClInclude Include="2022.11.02.h">
+      <Filter>c++수업</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C++class.cpp">

@@ -1,145 +1,131 @@
-#include <iostream> 
-#include <vector>
-
+#include <iostream>
 using namespace std;
 
-
-// 템플릿 (클래스와 함수)
-// 데이터의 형식에 의존하지 않고 하나의 값이 여러 다른 데이터
-// 타입을 가질 수 있는 기능입니다.
-
-// 컴파일러는 미리 함수의 형틀을 기억한 다음 함수가 호출될 때
-// 실제 함수를 호출합니다.
-
-// 함수 템플릿은 선언이기 때문에 메모리 활성과 구체화되어 있지 않은 상태입니다.
-
-// 함수 텝플릿
+// const 함수
 /*
-template <typename T>
-void Calculator(T x, T y)
-{
-	cout << "x의 값 : " << x << endl;
-	cout << "y의 값 : " << y << endl;
-}
-*/
+// const 함수 내부에서 변수의 값을 변경할 수 없도록 선언하는 함수입니다.
 
-// 클래스 템플릿
-/*
-template <class T>
-class Game
-{
-private :
-	T num1;
-	T num2;
+class Characther {
+private:
+	int health;
+	string name;
 public:
-	Game(T _num1, T _num2)
-	{
-		num1 = _num1;
-		num2 = _num2;
+	void Setinfo(int m_health, string m_name) {
+		health = m_health;
+		name = m_name;
 	}
-
-	T Getnumber1()
+	void GetInfo() const
 	{
-		return num1;
-	}
-	T Getnumber2()
-	{
-		return num2;
+		// const 함수의 역할은 함수내에 멤버변수의 값을 읽기전용으로
+		// 선언하기 위해서 사용되는 기능입니다.
+		// health = 100;
+		cout << "health의 값 : " << health << endl;
+		cout << "name의 값 : " << name << endl;
 	}
 };
 */
 
-// 템플릿 특수화
+// final
 /*
-// 템플릿에서 미리 지정해놓은 타입이 들어왔을 때,
-// 따로 처리하고 있는 때 사용하는 템플릿
-template <typename T>
-void Add(T x, T y)
+// 더 이상 클래스나 가상함수를 상속받지 않고 재정의할 수 없도록	
+// 설정해주는 키워드입니다.
+class A 
 {
-	cout << "x의 값 :" << x << endl;
-	cout << "y의 값 :" << y << endl;
-}
-
-template<> // 템플릿의 특수화
-void Add(int x, int y) // Add() 함수를 호출할 때 int 매개변수로 들어오면 이 함수로 처리하겠다.
+public :
+	void FunctionA() 
+	{
+		cout << "A의 함수입니다." << endl;
+	}
+	virtual void FunctionB1() 
+	{
+		cout << "A클래스에서 호출한 B1함수입니다." << endl;
+	}
+};
+// 클래스에 final을 설정하게 되면 B클래스 밑에 자식클래스를
+// 설정할 수 없습니다.
+class B : public A
 {
+public:
+	virtual	void FunctionB() 
+	{
+		cout << "B의 함수입니다" << endl;
+	}
+	void FunctionB1() final 
+	{
+		cout << "B클래스에서 호출한 B1의 함수입니다." << endl;
+	}
+};
+class C : public B
+{
+	void FunctionB() 
+	{
+		cout << "C클래스에서 호출한 B의 함수입니다." << endl;
+	}
 
-}
+	// FunctionB1함수는 B클래스에서 final로 선언했기 때문에
+	// 자식클래스 C에서 재정의할 수 없습니다.
+	// void FunctionB1(){}
+
+};
 */
+
+// 상속의 접근지정자
+/*
+// 상속 private, protected, public
+// private : 외부에서 접근 못하도록 설정하는 제한자입니다.
+// protected : 클래스 내부와 자기가 상속하는 클래스까지만 허용하는 제한자입니다.
+// public : 외부에서도 접근을 허용하는 제한자입니다.
+
+class CPU 
+{
+public:
+	void Count() 
+	{
+		cout << "CPU count" << endl;
+	}
+};
+
+// 상속을 할때 접근 지정자를 명시적으로 선언하지않으면
+// 기본 접근 지정자(private)로 선언됩니다.
+
+// 상속에서 private 접근 지정자로 상속하게 되면
+// 부모 클래스의 멤버를 자식 클래스에서 호출할 수 없습니다.
+class ALU : public CPU 
+{
+
+};
+*/
+
+// is ~ a 관계
+// is~a 관계는 일반적인 개념과 구체적인 개념과의 관계입니다.
+
+// has ~ a 관계
+// 구성 관계를 의미하며 한오브젝트(구성된 객체, 또는 부분/멤버 객체라고도 부릅니다.)
+// 가 다른 오브젝트(composite type이라고 부릅니다)에 "속한다(beloong to)를" 말합니다.
+
+
+
 
 
 int main()
 {
-	// 함수 템플릿
+	// const 함수
 	/*
-	Calculator(10, 20);
+	Characther character;
 
-	Calculator(10.5f, 6.7f);
-
-	Calculator('A', 'B');
+	character.Setinfo(99, "칼리스타");
+	character.GetInfo();
 	*/
 
-	// 클래스 템플릿
+	// final
 	/*
-	Game<int> game1(10, 20);
-	cout << game1.Getnumber1() << endl;
-	cout << game1.Getnumber2() << endl;
-
-	Game<float> game2(10.5f, 6.5f);
-	cout << game2.Getnumber1() << endl;
-	cout << game2.Getnumber2() << endl;
+	C cClass;
 	*/
 
-	// 템플릿 특수화
+	// 상속에서 접근 지정자
 	/*
-		Add(10.5f,6.5f);
+	ALU alu;
+	alu.Count();
 	*/
-
-	// STL (Standard Template Library)
-	// 표준 템플릿 라이브러리
-	// 자료구조와 알고리즘을 Template 형태로 제공하는 라이브러리입니다.
-
-	// STL의 구성
-	/*
-	// 1. 컨테이너
-	// 데이터를	저장하는 객체, 자료구조를 모아둔 집합입니다.
-	//   - A : 순차 컨테이너
-	//         자료를 순차적으로 저장하는 컨테이너입니다.
-	//   - B : 연관 컨테이너
-	//         트리 구조로 구성되어 있는 컨테이너입니다.
-	//         검색 및 삽입 그리고 삭제가 빠르다.
-	//   - C : 컨테이너 어댑터
-	//         기존의 컨테이너의 일부의 기능만 사용 가능하게 하여,
-	//         기능이 제한되거나 변형되어 있는 컨테이너입니다.
-	*/
-
-
-	// Vector
-	// 동적으로 원소를 추가할 수 있으며, 크기가 자동으로 늘어나는 
-	// 컨테이너입니다.
-	vector<int> data;
-
-	// vector의 push_back은 뒤에서부터 데이터를 넣어줍니다.
-	data.push_back(10);
-	data.push_back(5);
-
-	// vector의 pop_back은 뒤에서부터 데이터를 뺍니다.
-	data.pop_back();
-
-	// vector의 size는 vector가 가지고 있는 컨테이너의 크기를 반환합니다.
-	data.size();
-
-	for (int i = 0; i < data.size(); i++)
-	{
-		cout << data[i] << endl;
-	}
-	// vector의 front는 맨앞에 있는 원소를 출력합니다.
-	cout << data.front() << endl;
-
-	// vector같은 경우에는 맨앞의 원소를 추가할 수 없습니다.
-
-
-	// list
-	// Deque
 	return 0;
 }
