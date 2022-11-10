@@ -1,131 +1,39 @@
 #include <iostream>
+#include <set>
+#include <stack>
 using namespace std;
-
-// const 함수
-/*
-// const 함수 내부에서 변수의 값을 변경할 수 없도록 선언하는 함수입니다.
-
-class Characther {
-private:
-	int health;
-	string name;
-public:
-	void Setinfo(int m_health, string m_name) {
-		health = m_health;
-		name = m_name;
-	}
-	void GetInfo() const
-	{
-		// const 함수의 역할은 함수내에 멤버변수의 값을 읽기전용으로
-		// 선언하기 위해서 사용되는 기능입니다.
-		// health = 100;
-		cout << "health의 값 : " << health << endl;
-		cout << "name의 값 : " << name << endl;
-	}
-};
-*/
-
-// final
-/*
-// 더 이상 클래스나 가상함수를 상속받지 않고 재정의할 수 없도록	
-// 설정해주는 키워드입니다.
-class A 
-{
-public :
-	void FunctionA() 
-	{
-		cout << "A의 함수입니다." << endl;
-	}
-	virtual void FunctionB1() 
-	{
-		cout << "A클래스에서 호출한 B1함수입니다." << endl;
-	}
-};
-// 클래스에 final을 설정하게 되면 B클래스 밑에 자식클래스를
-// 설정할 수 없습니다.
-class B : public A
-{
-public:
-	virtual	void FunctionB() 
-	{
-		cout << "B의 함수입니다" << endl;
-	}
-	void FunctionB1() final 
-	{
-		cout << "B클래스에서 호출한 B1의 함수입니다." << endl;
-	}
-};
-class C : public B
-{
-	void FunctionB() 
-	{
-		cout << "C클래스에서 호출한 B의 함수입니다." << endl;
-	}
-
-	// FunctionB1함수는 B클래스에서 final로 선언했기 때문에
-	// 자식클래스 C에서 재정의할 수 없습니다.
-	// void FunctionB1(){}
-
-};
-*/
-
-// 상속의 접근지정자
-/*
-// 상속 private, protected, public
-// private : 외부에서 접근 못하도록 설정하는 제한자입니다.
-// protected : 클래스 내부와 자기가 상속하는 클래스까지만 허용하는 제한자입니다.
-// public : 외부에서도 접근을 허용하는 제한자입니다.
-
-class CPU 
-{
-public:
-	void Count() 
-	{
-		cout << "CPU count" << endl;
-	}
-};
-
-// 상속을 할때 접근 지정자를 명시적으로 선언하지않으면
-// 기본 접근 지정자(private)로 선언됩니다.
-
-// 상속에서 private 접근 지정자로 상속하게 되면
-// 부모 클래스의 멤버를 자식 클래스에서 호출할 수 없습니다.
-class ALU : public CPU 
-{
-
-};
-*/
-
-// is ~ a 관계
-// is~a 관계는 일반적인 개념과 구체적인 개념과의 관계입니다.
-
-// has ~ a 관계
-// 구성 관계를 의미하며 한오브젝트(구성된 객체, 또는 부분/멤버 객체라고도 부릅니다.)
-// 가 다른 오브젝트(composite type이라고 부릅니다)에 "속한다(beloong to)를" 말합니다.
-
-
-
-
 
 int main()
 {
-	// const 함수
+	// multi_set
 	/*
-	Characther character;
+	// set과 다르게 중복된 원소를 컨테이너에 저장할 수 있는 자료구조입니다.
+	std::multiset<int> mSet;
+	mSet.insert(11);
+	mSet.insert(12);
+	mSet.insert(56);
+	mSet.insert(44);
+	mSet.insert(36);
+	mSet.insert(70);
+	mSet.insert(94);
 
-	character.Setinfo(99, "칼리스타");
-	character.GetInfo();
+	for (auto iter = mSet.begin(); iter != mSet.end(); iter++) {
+		cout << *iter << endl;
+	}
+	// mSet.count() : 현재 컨테이너에 해당 값이 몇개 존재하는지 출력해주는 함수입니다.
+	cout << "mSet에 7이라는 값은 현재 몇 개 존재하나요? : " << mSet.count(7) << endl;
+
+	// 4가 처음으로 나온 부분은 어디일까요?
+	multiset<int> ::iterator start;
+
+	start = mSet.lower_bound(4);
+	cout << "4가 처음으로 나온 부분 : " << *start << endl;
 	*/
 
-	// final
-	/*
-	C cClass;
-	*/
+	// Node (struct)
 
-	// 상속에서 접근 지정자
-	/*
-	ALU alu;
-	alu.Count();
-	*/
+	// stack, quene
+	std::stack<int> Stack;
+
 	return 0;
 }
