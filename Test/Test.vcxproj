@@ -168,6 +168,9 @@
     <ClInclude Include="2022.10.27.h" />
     <ClInclude Include="2022.10.31.h" />
     <ClInclude Include="2022.11.02.h" />
+    <ClInclude Include="2022.11.10.h" />
+    <ClInclude Include="2022.11.11.h" />
+    <ClInclude Include="2022.11.16.h" />
     <ClInclude Include="2022.11.8.h" />
     <ClInclude Include="Function.h" />
     <ClInclude Include="Monster.h" />
